@@ -31,6 +31,11 @@
                 <td><input type="password" name="smtp_password" value="<?php echo esc_attr( get_option('smtp_password') ); ?>" /></td>
             </tr>
 
+            <div class="mll-shortcode-wrap">
+                <input disabled type="text" value="[mll-display-login-form]" id="shortcode">
+                <button class="copy-clipboard"><?php _e('Copy shortcode', 'mll'); ?></button>
+            </div>
+
         </table>
         
         <?php submit_button(); ?>

@@ -24,7 +24,7 @@
 
     <div class="col-12 col-md-10 d-flex">
         <div class="btn-wrapper">
-            <input type="submit" class="login btn btn-primary" name="login" value="Submit" />
+            <input type="submit" class="login btn btn-primary login-submit-ajax" name="login" value="Submit" />
         </div>
         <div id="loading">
             <img src="" />  

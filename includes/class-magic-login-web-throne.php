@@ -77,6 +77,9 @@ class Magic_Login_Web_Throne {
 		$this->load_dependencies();
 		// $this->define_globals();
 		$this->set_locale();
+		$this->create_shortcode();
+		$this->database_actions();
+		$this->ajax_actions();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
@@ -121,6 +124,21 @@ class Magic_Login_Web_Throne {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-magic-login-web-throne-loader.php';
 
 		/**
+		 * Init shortcode
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-magic-login-web-throne-shortcode.php';
+
+		/**
+		 * Init Ajax actions on Form
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-magic-login-web-throne-ajax-form.php';
+
+		/**
+		 * Database interactions - create actions
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-magic-login-web-throne-database.php';
+
+		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
@@ -140,6 +158,50 @@ class Magic_Login_Web_Throne {
 		$this->loader = new Magic_Login_Web_Throne_Loader();
 
 	}
+
+	/**
+	 * Instantiate a class for providing a short code for form
+	 *
+	 * This class basically uses a display form.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function create_shortcode() {
+
+		new Mll_Custom_Form_Shortcode();
+
+	}
+
+
+	/**
+	 * Instantiate a class for providing a short code for form
+	 *
+	 * This class basically uses a display form.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function database_actions() {
+
+		new Mll_Database();
+
+	}
+
+
+	/**
+	 * This uses all ajax actions on form
+	 *
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function ajax_actions() {
+
+		new Mll_Ajax_Form();
+
+	}
+	
 
 	/**
 	 * Define the locale for this plugin for internationalization.
@@ -176,9 +238,6 @@ class Magic_Login_Web_Throne {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'mll_create_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_mll_settings' );
 
-		// SQL mainly
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'mll_new_table_column' );
-
 		// Debugger offroad.
 		//$this->loader->add_action( 'admin_init', $plugin_admin, 'debug_it' );
 
@@ -197,19 +256,6 @@ class Magic_Login_Web_Throne {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
-		/**
-		 * Form hooks
-	 	 * @since    1.0.1
-		 */
-		$this->loader->add_action('init', $plugin_public, 'display_form');
-
-		/**
-		 * Form ajax hooks
-	 	 * @since    1.0.1
-		 */
-		$this->loader->add_action('wp_ajax_check_user', $plugin_public, 'check_user');
-		$this->loader->add_action('wp_ajax_nopriv_check_user', $plugin_public, 'check_user');
 
 	}
 
