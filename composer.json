@@ -1,0 +1,18 @@
+{
+    "name": "webthrone/magiclogin",
+    "description": "Hey",
+    "type": "library",
+    "require": {
+        "nitsan/ns-lazy-load": "^2.0",
+        "wp-cli/wp-cli": "^2.7",
+        "srmklive/paypal": "^3.0"
+    },
+    "license": "mine",
+    "minimum-stability": "beta",
+    "config": {
+        "allow-plugins": {
+            "typo3/cms-composer-installers": true,
+            "typo3/class-alias-loader": true
+        }
+    }
+}

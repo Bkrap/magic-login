@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-07-13T15:04:58Z" product-name="ns_lazy_load">
+		<header/>
+		<body>
+			<trans-unit id="tx_ns_lazy_load_domain_model_felazyload">
+				<source>Lazy Load</source>
+			</trans-unit>
+			<trans-unit id="tx_ns_lazy_load_domain_model_felazyload.description">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_nslazyload_domain_model_lazyload">
+				<source>Lazyload</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

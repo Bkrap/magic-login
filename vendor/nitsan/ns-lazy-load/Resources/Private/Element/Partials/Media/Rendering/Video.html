@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="originalVideo" value="{f:uri.image(image:file)}" />
+<video class="lazyVideo video-embed-item"
+       controls width="620"
+       width="{f:if(condition:dimensions.width, then: dimensions.width, else:300)}"
+       height="{f:if(condition:dimensions.width, then: dimensions.height, else:300)}"
+       data-src="{originalVideo}">
+    <source type="video/mp4" data-src="{originalVideo}">
+    <source type="video/ogg" data-src="{originalVideo}">
+    <source type="video/avi" data-src="{originalVideo}">
+</video>
+
+</html>

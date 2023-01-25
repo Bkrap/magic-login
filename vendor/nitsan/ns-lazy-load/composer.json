@@ -1,0 +1,33 @@
+{
+  "name": "nitsan/ns-lazy-load",
+  "type": "typo3-cms-extension",
+  "description": "Are you facing speed and performance issue due to heavy image-assets on your TYPO3 site? If yes, This plug-an-play extension reduces the number of HTTP requests mechanism and improves the loading time. Live-Demo: https://demo.t3terminal.com/t3t-extensions/lazy-load/ You can download PRO version for more-features & free-support at https://t3terminal.com/typo3-lazy-load-plugin-free/",
+  "homepage": "https://extensions.typo3.org/extension/ns_lazy_load/",
+  "license": "GPL-2.0+",
+  "keywords": [
+  ],
+  "authors": [
+    {
+      "name": "NITSAN Technologies",
+      "role": "Developer",
+      "homepage": "https://www.nitsan.in/"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^8.0  || ^9.0 || ^10.0  || ^11.0 "
+  },
+  "replace": {
+    "typo3-ter/ns-lazy-load": "self.version"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor/",
+    "bin-dir": ".Build/bin/"
+  },
+  "extra": {
+    "typo3/cms": {
+        "cms-package-dir": "{$vendor-dir}/typo3/cms",
+        "web-dir": ".Build/public",
+        "extension-key": "ns_lazy_load"
+    }
+  }
+}
